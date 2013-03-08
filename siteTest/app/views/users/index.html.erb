@@ -1,0 +1,29 @@
+<h1>Liste des contacts</h1>
+
+<table>
+  <tr>
+    <th>Prenom</th>
+    <th>Nom</th>
+    <th>Email</th>
+    <th>Telephone</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.prenom %></td>
+    <td><%= user.nom %></td>
+    <td><%= user.email %></td>
+    <td><%= user.telephone %></td>
+    <td><%= link_to 'Afficher', user %></td>
+    <td><%= link_to 'Editer', edit_user_path(user) %></td>
+    <td><%= link_to 'Supprimer', user, confirm: 'Etes-vous sur?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nouvel utilisateur', new_user_path %>
